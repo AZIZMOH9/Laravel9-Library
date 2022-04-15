@@ -1,60 +1,22 @@
+
+@extends('layouts.frontbased')
+
+@section('title','Anasayfa')
+
+@section('content')
+
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>PHPJabbers.com | Free Book Online Store Website Template</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="{{asset('assets')}}/assets/bootstrap/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
+
 	<body class="is-preload">
 		<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Header -->
-				<header id="header">
-					<div class="inner">
 
-						<!-- Logo -->
-							<a href="index.html" class="logo">
-									<span class="fa fa-book"></span> <span class="title">Book Online Store Website</span>
-								</a>
-
-						<!-- Nav -->
-							<nav>
-								<ul>
-									<li><a href="#menu">Menu</a></li>
-								</ul>
-							</nav>
-
-					</div>
-				</header>
 
 			<!-- Menu -->
-				<nav id="menu">
-					<h2>Menu</h2>
-					<ul>
-						<li><a href="index.html">Home</a></li>
 
-						<li><a href="products.html" class="active">Products</a></li>
-
-						<li><a href="checkout.html">Checkout</a></li>
-
-						<li>
-							<a href="#" class="dropdown-toggle">About</a>
-
-							<ul>
-								<li><a href="about.html">About Us</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="testimonials.html">Testimonials</a></li>
-								<li><a href="terms.html">Terms</a></li>
-							</ul>
-						</li>
-
-						<li><a href="contact.html">Contact Us</a></li>
-					</ul>
-				</nav>
 
 				<!-- Main -->
 					<div id="main">
@@ -62,14 +24,14 @@
 							<h1>Products</h1>
 
 							<div class="image main">
-								<img src="images/banner-image-6-1920x500.jpg" class="img-fluid" alt="" />
+								<img src="{{asset('assets')}}/images/banner-image-6-1920x500.jpg" class="img-fluid" alt="" />
 							</div>
 
 							<!-- Products -->
 							<section class="tiles">
 								<article class="style1">
 									<span class="image">
-										<img src="images/product-1-720x480.jpg" alt="" />
+										<img src="{{asset('assets')}}/images/product-1-720x480.jpg" alt="" />
 									</span>
 									<a href="product-details.html">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
@@ -81,7 +43,7 @@
 								</article>
 								<article class="style2">
 									<span class="image">
-										<img src="images/product-2-720x480.jpg" alt="" />
+										<img src="{{asset('assets')}}/images/product-2-720x480.jpg" alt="" />
 									</span>
 									<a href="product-details.html">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
@@ -93,7 +55,7 @@
 								</article>
 								<article class="style3">
 									<span class="image">
-										<img src="images/product-3-720x480.jpg" alt="" />
+										<img src="{{asset('assets')}}/images/product-3-720x480.jpg" alt="" />
 									</span>
 									<a href="product-details.html">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
@@ -106,7 +68,7 @@
 
 								<article class="style4">
 									<span class="image">
-										<img src="images/product-4-720x480.jpg" alt="" />
+										<img src="{{asset('assets')}}/images/product-4-720x480.jpg" alt="" />
 									</span>
 									<a href="product-details.html">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
@@ -119,7 +81,7 @@
 
 								<article class="style5">
 									<span class="image">
-										<img src="images/product-5-720x480.jpg" alt="" />
+										<img src="{{asset('assets')}}/images/product-5-720x480.jpg" alt="" />
 									</span>
 									<a href="product-details.html">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
@@ -132,7 +94,7 @@
 
 								<article class="style6">
 									<span class="image">
-										<img src="images/product-6-720x480.jpg" alt="" />
+										<img src="{{asset('assets')}}/images/product-6-720x480.jpg" alt="" />
 									</span>
 									<a href="product-details.html">
 										<h2>Lorem ipsum dolor sit amet, consectetur</h2>
@@ -170,10 +132,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="{{asset('assets')}}/assets/js/jquery.min.js"></script>
+			<script src="{{asset('assets')}}/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+			<script src="{{asset('assets')}}/assets/js/jquery.scrolly.min.js"></script>
+			<script src="{{asset('assets')}}/assets/js/jquery.scrollex.min.js"></script>
+			<script src="{{asset('assets')}}/assets/js/main.js"></script>
 	</body>
 </html>
+@endsection
