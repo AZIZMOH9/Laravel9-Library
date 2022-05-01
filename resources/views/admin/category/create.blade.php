@@ -10,13 +10,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>Add category</h2>
-                    <h5>Welcome abdulazeez , Love to see you back. </h5>
+
 
                 </div>
             </div>
-            <div class="col-md-6">
-                <h3>Basic Form Examples</h3>
-                    <form role="form" action="/admin/category/store" method="post">
+            <div class="col-md-16">
+                <h3>fill the new category information below:</h3>
+                    <form role="form" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label>title Input</label>
@@ -30,8 +30,7 @@
                             <label>description Input</label>
                             <input type="text" class="form-control" name="description" placeholder="description">
                         </div>
-                    </div>
-            <div class="form-group">
+
                 <label>status</label>
                 <select class="form-control">
                     <option>true</option>

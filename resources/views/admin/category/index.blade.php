@@ -10,15 +10,66 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>category list</h2>
-                    <h5>Welcome abdulazeez , Love to see you back. </h5>
+                    <br>
+                    <a href="{{route('admin.category.create')}}" class="btn btn-default btn-lg  ">Add category</a>
 
-                </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            category list
+                            <a href="{{route('admin.index')}}">home</a></td>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive table-bordered">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>title</th>
+                                        <th>keyword</th>
+                                        <th>description</th>
+                                        <th>image</th>
+                                        <th>status</th>
+                                        <th style="width: 40px">edit</th>
+                                        <th style="width: 40px">delete</th>
+                                        <th style="width: 40px">show</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($data as $rs)
+                                    <tr>
+                                        <td>{{$rs->id}}</td>
+                                        <td>{{$rs->title}}</td>
+                                        <td>{{$rs->keywords}}</td>
+                                        <td>{{$rs->description}}</td>
+                                        <td>
+                                            @if ($rs->image)
+                                                <img src="{{Storage::url($rs->image)}}" style="height: 50px">
+                                                @endif
+
+
+                                        </td>
+                                        <td>{{$rs->status}}</td>
+                                        <td><a href="{{route('admin.category.edit',['id'=>$rs->id])}}"class="btn btn-primary btn-xs">Edit</a></td>
+                                        <td><a href="{{route('admin.category.destroy',['id'=>$rs->id])}}"class="btn btn-danger btn-xs"
+                                            onclick="return confirm('deleting are you sure?')">delete</a></td>
+                                        <td><a href="{{route('admin.category.show',['id'=>$rs->id])}}"class="btn btn-success btn-xs">show</a></td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
             </div>
             <!-- /. ROW  -->
             <hr />
 
         </div>
         <!-- /. PAGE INNER  -->
+
     </div>
     <!-- /. PAGE WRAPPER  -->
     </div>

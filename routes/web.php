@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\HomeController As adminhomecontroller;
+use App\Http\Controllers\admin\categoryController As admincategorycontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,8 +34,16 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 //**************************admin panel
-Route::get('/admin',[adminhomecontroller::class, 'index'])->name('index');
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/',[adminhomecontroller::class, 'index'])->name('index');
 //**************************admin category
-Route::get('/admin/category',[\App\Http\Controllers\admin\categoryController::class, 'index'])->name('admin_category');
-Route::get('/admin/category/create',[\App\Http\Controllers\admin\categoryController::class, 'create'])->name('admin_category_create');
-Route::post('/admin/category/store',[\App\Http\Controllers\admin\categoryController::class, 'store'])->name('admin_category_store');
+    Route::prefix('/category')->name('category.')->controller(admincategorycontroller::class)->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+        Route::get('/show/{id}','show')->name('show');
+});
+});
