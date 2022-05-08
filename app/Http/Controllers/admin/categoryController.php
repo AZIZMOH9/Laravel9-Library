@@ -9,6 +9,20 @@ use Illuminate\Support\Facades\Storage;
 
 class categoryController extends Controller
 {
+    protected $appends =[
+        'getparentstree'
+    ];
+
+    public static function getparentstree($category,$title){
+        if($category->parent_id==0){
+            return $title;
+        }
+        $parent=category::find($category->parent_id);
+        $title=$parent->title . '>' .$title;
+        return categoryController::getparentstree($parent,$title);
+}
+
+
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +43,9 @@ class categoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');//
+        $data=category::all();
+        return view('admin.category.create',[
+            'data'=>$data]);//
     }
 
     /**
@@ -42,7 +58,7 @@ class categoryController extends Controller
     {
 
         $data=new category();
-        $data->parent_id= 0;
+        $data->parent_id= $request->parent_id;
         $data->title= $request->title;
         $data->keywords= $request->keyword;
         $data->status= $request->status;
@@ -79,8 +95,10 @@ class categoryController extends Controller
     {
         //
         $data=category::find($id);
+        $datalist=category::all();
         return view('admin.category.edit',[
-            'data'=>$data]);
+            'data'=>$data,
+            'datalist'=>$datalist]);
     }
 
     /**
@@ -94,7 +112,7 @@ class categoryController extends Controller
     {
         //
         $data=category::find($id);
-        $data->parent_id= 0;
+        $data->parent_id= $request->parent_id;
         $data->title= $request->title;
         $data->keywords= $request->keyword;
         $data->status= $request->status;
@@ -117,8 +135,10 @@ class categoryController extends Controller
         //
 
         $data= category::find($id);
+        if ($data->image&& storage::disk('public')->exists($data->image)){
+            Storage::delete($data->image);
+        }
         $data->delete();
-        Storage::delete($data->image);
         return redirect('admin/category');
     }
 }

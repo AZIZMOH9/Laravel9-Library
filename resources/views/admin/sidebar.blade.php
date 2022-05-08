@@ -6,7 +6,7 @@
                 <img src="{{asset('assets')}}/assets/admin/img/find_user.png" class="user-image img-responsive"/>
             </li>
             <li>
-                <a  href="/admin"><i class="fa fa-dashboard fa-3x"></i> Dashpad</a>
+                <a  href="/admin"><i class="fa fa-film fa-3x"></i> Dashpad</a>
             </li>
             <li>
                 <a  href="/admin/category"><i class="fa fa-dashboard fa-3x"></i> Catagories</a>

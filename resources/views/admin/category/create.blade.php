@@ -18,6 +18,19 @@
                 <h3>fill the new category information below:</h3>
                     <form role="form" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
+                        <div class="from-group">
+                            <label>Parent category</label>
+
+                            <select class="form-control select2" name="parent_id" style="...">
+                                <option value="0" selected="selected">Main Category</option>
+                                @foreach($data as $rs)
+                                    <option value="{{$rs->id}}">{{\App\Http\Controllers\admin\categoryController::getparentstree($rs,$rs->title)}}</option>
+                                @endforeach
+                            </select>
+
+                        </div>
+
+
                         <div class="form-group">
                             <label>title Input</label>
                             <input type="text" class="form-control" name="title" placeholder="title">

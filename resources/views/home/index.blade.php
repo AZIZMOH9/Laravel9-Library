@@ -23,23 +23,25 @@
 
             <!-- Products -->
             <section class="tiles">
+                @foreach($productlist1 as $rs)
                 <article class="style1">
 									<span class="image">
-										<img src="{{asset('assets')}}/images/product-1-720x480.jpg" alt="" />
+										<img src="{{Storage::url($rs->image)}}" style="height: 220px; width:480px;" />
 									</span>
-                    <a href="product-details.html">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
+                    <a href="{{route('product',['id'=>$rs->id])}}">
+                        <h2>{{$rs->title}}</h2>
 
-                        <p><del>$19.00</del> <strong>$19.00</strong></p>
+                        <p><del>${{$rs->price*1.5}}</del> <strong>${{$rs->price}}</strong></p>
 
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
+                        <p>${{$rs->keyword}}</p>
                     </a>
                 </article>
+                @endforeach
                 <article class="style2">
 									<span class="image">
 										<img src="{{asset('assets')}}/images/product-2-720x480.jpg" alt="" />
 									</span>
-                    <a href="product-details.html">
+                    <a href="{{route('product',['id'=>$rs->id])}}">
                         <h2>Lorem ipsum dolor sit amet, consectetur</h2>
 
                         <p><del>$19.00</del> <strong>$19.00</strong></p>
@@ -51,7 +53,7 @@
 									<span class="image">
 										<img src="{{asset('assets')}}/images/product-3-720x480.jpg" alt="" />
 									</span>
-                    <a href="product-details.html">
+                    <a href="{{route('product',['id'=>$rs->id])}}">
                         <h2>Lorem ipsum dolor sit amet, consectetur</h2>
 
                         <p><del>$19.00</del> <strong>$19.00</strong></p>

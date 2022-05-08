@@ -25,9 +25,8 @@
                                     <thead>
                                     <tr>
                                         <th>id</th>
+                                        <th>Parent</th>
                                         <th>title</th>
-                                        <th>keyword</th>
-                                        <th>description</th>
                                         <th>image</th>
                                         <th>status</th>
                                         <th style="width: 40px">edit</th>
@@ -39,9 +38,8 @@
                                     @foreach($data as $rs)
                                     <tr>
                                         <td>{{$rs->id}}</td>
+                                        <td>{{\App\Http\Controllers\admin\categoryController::getparentstree($rs,$rs->title)}}</td>
                                         <td>{{$rs->title}}</td>
-                                        <td>{{$rs->keywords}}</td>
-                                        <td>{{$rs->description}}</td>
                                         <td>
                                             @if ($rs->image)
                                                 <img src="{{Storage::url($rs->image)}}" style="height: 50px">
