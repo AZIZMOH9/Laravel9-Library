@@ -82,6 +82,6 @@
     <!-- CUSTOM SCRIPTS -->
     <script src="{{asset('assets')}}/assets/admin/js/custom.js"></script>
 
-
+    <p>jello</p>
 
 @endsection

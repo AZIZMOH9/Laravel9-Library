@@ -20,10 +20,12 @@ Route::get('/home',[HomeController::class, 'index'])->name('index');
 Route::get('/products',[HomeController::class, 'products'])->name('products');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
 Route::get('/blog',[HomeController::class, 'blog'])->name('blog');
+Route::get('/referance',[HomeController::class, 'referance'])->name('referance');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::get('/testimonials',[HomeController::class, 'testimonials'])->name('testimonials');
 Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
 Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
+Route::get('/categoryproducts/{id}/{slug}',[HomeController::class, 'categoryproducts'])->name('categoryproducts');
 Route::get('/hello', function () {
     return 'Hello World';
 });
@@ -35,9 +37,15 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+//**************************home panel
+
 //**************************admin panel
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/',[adminhomecontroller::class, 'index'])->name('index');
+    //**************************admin panel
+    Route::get('/setting',[adminhomecontroller::class, 'setting'])->name('setting');
+    Route::post('/setting',[adminhomecontroller::class, 'settingupdate'])->name('setting.update');
+
 //**************************admin category
     Route::prefix('/category')->name('category.')->controller(admincategorycontroller::class)->group(function () {
         Route::get('', 'index')->name('index');

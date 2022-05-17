@@ -30,7 +30,7 @@
                 <a  href="/admin/social"><i class="fa fa-user fa-3x"></i> Social</a>
             </li>
             <li>
-                <a  href="/admin/social"><i class="fa fa-edit fa-3x"></i> settings</a>
+                <a  href="/admin/setting"><i class="fa fa-edit fa-3x"></i> settings</a>
             </li>
 
             <li>
