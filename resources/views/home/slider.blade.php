@@ -9,7 +9,7 @@
 
 <h2 class="w3-center">Manual Slideshow</h2>
 @foreach($sliderdata as $rs)
-<div class="w3-content w3-display-container">
+<div class="w3-content w3-display-container" style="height: 40px; width:480px;">
     <img class="mySlides" src="{{Storage::url($rs->image)}}" style="width:100%">
     @endforeach
     <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
