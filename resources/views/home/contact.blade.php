@@ -10,21 +10,12 @@
 
 
 
-<!DOCTYPE HTML>
-<html>
-
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
-
-
-
 
 
 				{!! $setting->contact !!}
 
 
-			</div>
+
 
 		<!-- Scripts -->
 			<script src="{{asset('assets')}}/assets/js/jquery.min.js"></script>

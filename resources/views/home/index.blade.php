@@ -8,7 +8,7 @@
 
 @section('content')
     <!-- Main -->
-    <div id="main">
+    < id="main">
         @include('home.slider')
 
         <br>
@@ -134,7 +134,7 @@
 
             <div class="row">
                 <div class="col-sm-4 text-center">
-                    <img src="public/assets/images/blog-1-720x480.jpg" class="img-fluid" alt="" />
+                    <img src="{{asset('assets')}}/images/blog-1-720x480.jpg" class="img-fluid" alt="">
 
                     <h2 class="m-n"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
 
@@ -142,7 +142,7 @@
                 </div>
 
                 <div class="col-sm-4 text-center">
-                    <img src="public/assets/images/blog-2-720x480.jpg" class="img-fluid" alt="" />
+                    <img src="{{asset('assets')}}/images/blog-2-720x480.jpg" class="img-fluid" alt="">
 
                     <h2 class="m-n"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
 
@@ -150,18 +150,17 @@
                 </div>
 
                 <div class="col-sm-4 text-center">
-                    <img src="public/assets/images/blog-3-720x480.jpg" class="img-fluid" alt="" />
+                    <img src="{{asset('assets')}}/images/blog-3-720x480.jpg" class="img-fluid" alt="">
 
                     <h2 class="m-n"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
 
                     <p> John Doe &nbsp;|&nbsp; 12/06/2020 10:30</p>
                 </div>
             </div>
-
-            <p class="text-center"><a href="blog.html">Read More &nbsp;<i class="fa fa-long-arrow-right"></i></a></p>
-
-
         </div>
-    </div>
+
+
+
+
 
 @endsection

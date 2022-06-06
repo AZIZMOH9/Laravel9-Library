@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminProductController;
+use App\Http\Controllers\admin\MessageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin\HomeController As adminhomecontroller;
@@ -22,6 +23,7 @@ Route::get('/about',[HomeController::class, 'about'])->name('about');
 Route::get('/blog',[HomeController::class, 'blog'])->name('blog');
 Route::get('/referance',[HomeController::class, 'referance'])->name('referance');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
+Route::post('/storemessage',[HomeController::class, 'storemessage'])->name('storemessage');
 Route::get('/testimonials',[HomeController::class, 'testimonials'])->name('testimonials');
 Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
 Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
@@ -73,5 +75,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/create/{pid}', 'create')->name('create');
         Route::post('/store/{pid}','store')->name('store');
         Route::get('/destroy/{pid}/{id}','destroy')->name('destroy');
+    });
+    //**************************admin product
+    Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/show/{id}','show')->name('show');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
     });
 });

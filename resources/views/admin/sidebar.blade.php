@@ -21,7 +21,7 @@
                 <a  href="/admin/faq"><i class="fa fa-question fa-3x"></i> FAQ</a>
             </li>
             <li>
-                <a  href="/admin/message"><i class="fa fa-mail-forward fa-3x"></i> Messages</a>
+                <a  href="{{route('admin.message.index')}}"><i class="fa fa-mail-forward fa-3x"></i> Messages</a>
             </li>
             <li>
                 <a  href="/admin/user"><i class="fa fa-user fa-3x"></i> Users</a>

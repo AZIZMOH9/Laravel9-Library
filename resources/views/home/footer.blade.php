@@ -3,7 +3,9 @@
     <div class="inner">
         <section>
             <h2>Contact Us</h2>
-            <form method="post" action="#">
+            <h1>{{\Illuminate\Support\Facades\Session::get('info')}}</h1>
+            <form method="post" action="{{route('storemessage')}}">
+                @csrf
                 <div class="fields">
                     <div class="field half">
                         <input type="text" name="name" id="name" placeholder="Name" />
@@ -11,6 +13,9 @@
 
                     <div class="field half">
                         <input type="text" name="email" id="email" placeholder="Email" />
+                    </div>
+                    <div class="field half">
+                        <input type="text" name="email" id="phone" placeholder="Email" />
                     </div>
 
                     <div class="field">
@@ -22,12 +27,14 @@
                     </div>
 
                     <div class="field text-right">
-                        <label>&nbsp;</label>
-
+                        <label>&nbsp;massge</label>
+                        <textarea id="massege"></textarea>
+                        <br>
                         <ul class="actions">
                             <li><input type="submit" value="Send Message" class="primary" /></li>
                         </ul>
                     </div>
+
                 </div>
             </form>
         </section>
