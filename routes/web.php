@@ -20,6 +20,7 @@ use App\Http\Controllers\admin\categoryController As admincategorycontroller;
 
 Route::get('/home',[HomeController::class, 'index'])->name('index');
 Route::get('/products',[HomeController::class, 'products'])->name('products');
+Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
 Route::get('/blog',[HomeController::class, 'blog'])->name('blog');
 Route::get('/referance',[HomeController::class, 'referance'])->name('referance');

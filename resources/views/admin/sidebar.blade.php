@@ -3,7 +3,7 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li class="text-center">
-                <img src="{{asset('assets')}}/assets/admin/img/find_user.png" class="user-image img-responsive"/>
+                <img src="{{asset('assets')}}/assets/admin/img/yuksel.jpg" class="user-image img-responsive"/>
             </li>
             <li>
                 <a  href="/admin"><i class="fa fa-film fa-3x"></i> Dashpad</a>

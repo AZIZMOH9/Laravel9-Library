@@ -26,5 +26,6 @@ $mainCategories=\App\Http\Controllers\HomeController::maincategorylist()
 
         <li><a href="/referance">Referances</a></li>
         <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/faq">FAQ</a></li>
     </ul>
 </nav>
