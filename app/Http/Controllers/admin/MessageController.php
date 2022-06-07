@@ -4,7 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Message;
+use App\Models\product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MessageController extends Controller
 {
@@ -40,7 +42,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -51,7 +53,10 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Message::all();
+        return view('admin.message.show', [
+            'data' => $data
+        ]);//
     }
 
     /**
@@ -85,6 +90,9 @@ class MessageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Message::find($id);
+        $data->delete();
+        return redirect(route('admin.message.index'));
     }
+
 }

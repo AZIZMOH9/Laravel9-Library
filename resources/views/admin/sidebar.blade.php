@@ -18,7 +18,7 @@
                 <a  href="/admin/comment"><i class="fa fa-comment fa-3x"></i> Comments</a>
             </li>
             <li>
-                <a  href="/admin/faq"><i class="fa fa-question fa-3x"></i> FAQ</a>
+                <a  href="{{route('admin.faq.index')}}"><i class="fa fa-question fa-3x"></i> FAQ</a>
             </li>
             <li>
                 <a  href="{{route('admin.message.index')}}"><i class="fa fa-mail-forward fa-3x"></i> Messages</a>

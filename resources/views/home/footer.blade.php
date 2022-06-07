@@ -15,7 +15,7 @@
                         <input type="text" name="email" id="email" placeholder="Email" />
                     </div>
                     <div class="field half">
-                        <input type="text" name="email" id="phone" placeholder="Email" />
+                        <input type="text" name="phone" id="phone" placeholder="Email" />
                     </div>
 
                     <div class="field">
