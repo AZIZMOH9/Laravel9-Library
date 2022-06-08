@@ -8,7 +8,7 @@
 
 @section('content')
     <!-- Main -->
-    < id="main">
+
         @include('home.slider')
 
         <br>

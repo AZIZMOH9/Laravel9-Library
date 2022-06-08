@@ -29,7 +29,11 @@ Route::post('/storemessage',[HomeController::class, 'storemessage'])->name('stor
 Route::get('/testimonials',[HomeController::class, 'testimonials'])->name('testimonials');
 Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
 Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
+Route::post('/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
 Route::get('/categoryproducts/{id}/{slug}',[HomeController::class, 'categoryproducts'])->name('categoryproducts');
+Route::view('/loginuser','home.login');
+Route::get('/logoutuser',[HomeController::class, 'logout'])->name('logoutuser');
+Route::view('/registeruser','home.regestir');
 Route::get('/hello', function () {
     return 'Hello World';
 });

@@ -59,7 +59,25 @@
                         <p> {{$data->description}}</p>
 
                         <p>{!!$data->detail!!}.</p>
-
+@foreach($reviews as $rs)
+    <div class="single-review">
+        <div class="review-heading">
+            <div><a href="#"><i class="fa fa-uesr-o">{{$rs->user->name}}</i></a>
+                <div><a href="#"><i class="fa fa-uesr-o">{{$rs->user->created_at}}</i></a>
+                    <div class="review-raiting pull-right">
+                        <i class="fa fa-star @if ($rs->rate<1) -0 empty @endif"></i>
+                        <i class="fa fa-star @if ($rs->rate<2) -0 empty @endif"></i>
+                        <i class="fa fa-star @if ($rs->rate<3) -0 empty @endif"></i>
+                        <i class="fa fa-star @if ($rs->rate<4) -0 empty @endif"></i>
+                        <i class="fa fa-star @if ($rs->rate<5) -0 empty @endif"></i>
+                    </div>
+                </div>
+                <div class="review-body">
+                    <strong>{{$rs->subject}}</strong>
+                    <p>{{$rs->review}}</p>
+                </div>
+            </div>
+            @endforeach
                         <div class="row">
                             <div class="col-sm-4">
                                 <label class="control-label">Extra 1</label>
@@ -92,7 +110,39 @@
                     </div>
                 </div>
             </div>
+            <div class="page-section" >
+                <div class="container" >
+                    <h1 class="text-center wow fadeInUp">Write Your Rewiev</h1>
+                    <form class="main-form" action="{{route('storecomment')}}" method="post">
+                        @csrf
+                        <input type="hidden"  name="policlinic_id" class="form-control" value="{{$data->id}}" >
+                        <div class="row mb-3">
+                            <div class="col-sm-6 py-2 wow fadeInLeft">
+                                <label for="Subject">Subject</label>
+                                <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
+                                <label for="rate">Rate</label>
+                                <select name="rate" id="rate"  class="custom-select">
+                                    <option  value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div class="col-12 py-2 wow fadeInUp">
+                                <label for="comment">Your Comment</label>
+                                <textarea id="comment" name="comment" class="form-control" rows="8" placeholder="Enter Your Comment"></textarea>
+                            </div>
+                        </div>
+                        @auth()
+                            <button type="submit" class="btn btn-primary wow zoomIn">Submit</button>
+                        @else
 
+                            <a href="/login" class="btn btn-danger"> For Submit Your Comment ,Please Login</a>
+                        @endauth
+                    </form>
             <br>
             <br>
 

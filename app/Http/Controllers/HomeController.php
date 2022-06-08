@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\Comment;
 use App\Models\Faq;
 use App\Models\Message;
 use App\Models\product;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -30,8 +32,10 @@ class HomeController extends Controller
     public function product($id){
         $data=product::find($id);
         $images =DB::table('images')->where('product_id',$id)->get();
+        $reviews=Comment::where('product_id',$id)->get();
         return view('/home/product',['data'=>$data,
-            'images'=>$images]);
+            'images'=>$images,
+            'reviews'=>$reviews]);
 
     }
     public function categoryproducts($id){
@@ -68,6 +72,18 @@ class HomeController extends Controller
         $data->save();
         return redirect()->route('contact')->with('info','your message has been sent,thank you');
     }
+    public function storecomment(Request $request){
+        //dd($request);
+        $data=new Comment();
+        $data->user_id= Auth::id();
+        $data->product_id= $request->input('product_id');
+        $data->subject= $request->input('subject');
+        $data->review= $request->input('review');
+        $data->rate= $request->input('rate');
+        $data->ip=request()->ip();
+        $data->save();
+        return redirect()->route('product',['id'=>$request->input('product_id')] )->with('info','your comment has been sent,thank you');
+    }
     public function contact(){
 
         $setting=Setting::first();
@@ -96,5 +112,13 @@ class HomeController extends Controller
     }
     public function terms(){
         return view('/home/terms');
+    }
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerate();
+        return redirect('/home');
+
+
     }
 }
