@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminProductController;
+use App\Http\Controllers\admin\AdminUserController;
 use App\Http\Controllers\admin\FaqController;
 use App\Http\Controllers\admin\MessageController As MessageController;
 use Illuminate\Support\Facades\Route;
@@ -32,7 +33,9 @@ Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
 Route::post('/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
 Route::get('/categoryproducts/{id}/{slug}',[HomeController::class, 'categoryproducts'])->name('categoryproducts');
 Route::view('/loginuser','home.login');
+Route::view('/loginadmin','admin.login');
 Route::get('/logoutuser',[HomeController::class, 'logout'])->name('logoutuser');
+Route::post('/loginadmincheck',[HomeController::class, 'loginadmincheck'])->name('loginadmincheck');
 Route::view('/registeruser','home.regestir');
 Route::get('/hello', function () {
     return 'Hello World';
@@ -48,7 +51,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //**************************home panel
 
 //**************************admin panel
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::middleware('auth')->group(function (){
+  Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/',[adminhomecontroller::class, 'index'])->name('index');
     //**************************admin panel
     Route::get('/setting',[adminhomecontroller::class, 'setting'])->name('setting');
@@ -98,4 +102,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/destroy/{id}','destroy')->name('destroy');
         Route::get('/show/{id}','show')->name('show');
     });
+    //**************************admin product
+    Route::prefix('/user')->name('user.')->controller(AdminUserController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::get('/show/{id}','show')->name('show');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+        Route::post('/addrole/{id}','addrole')->name('addrole');
+        Route::get('/destroy/{uid}/{rid}','destroyrole')->name('destroyrole');
+    });
+  });
 });

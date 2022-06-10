@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Message;
-use App\Models\product;
+use App\Models\Role;
 use App\Models\RoleUser;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
-class MessageController extends Controller
+class AdminUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +17,10 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $data = Message::all();
-        return view('admin.message.index', [
+        $data = User::all();
+        return view('admin.user.index', [
             'data' => $data
         ]);//
-
     }
 
     /**
@@ -43,7 +41,7 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -54,10 +52,29 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-        $data = Message::all();
-        return view('admin.message.show', [
-            'data' => $data
+        $data = User::find($id);
+        $roles = Role::all();
+        return view('admin.user.show', [
+            'data' => $data,'roles' => $roles
         ]);//
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function addrole(Request $request, $id)
+    {
+        $data=new RoleUser();
+        $data->user_id=$id;
+        $data->role_id=$request->role_id;
+        $data->save();
+        return redirect(route('admin.user.show',['id'=>$id]));
     }
 
     /**
@@ -83,19 +100,16 @@ class MessageController extends Controller
         //
     }
 
-
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $uid
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroyrole($uid,$rid)
     {
-        $data = Message::find($id);
-        $data->delete();
-        return redirect(route('admin.message.index'));
+        $user = User::find($uid);
+        $user->roles()->detach($rid);
+        return redirect(route('admin.user.index',['id'=>$uid]));
     }
-
 }

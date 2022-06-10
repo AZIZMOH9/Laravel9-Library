@@ -28,7 +28,7 @@
             <!-- Products -->
             <section class="tiles">
                 @foreach($productlist1 as $rs)
-                <article class="style1">
+                <article class="">
 									<span class="image">
 										<img src="{{Storage::url($rs->image)}}" style="height: 220px; width:480px;" />
 									</span>
@@ -41,69 +41,7 @@
                     </a>
                 </article>
                 @endforeach
-                <article class="style2">
-									<span class="image">
-										<img src="{{asset('assets')}}/images/product-2-720x480.jpg" alt="" />
-									</span>
-                    <a href="{{route('product',['id'=>$rs->id])}}">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
 
-                        <p><del>$19.00</del> <strong>$19.00</strong></p>
-
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-                    </a>
-                </article>
-                <article class="style3">
-									<span class="image">
-										<img src="{{asset('assets')}}/images/product-3-720x480.jpg" alt="" />
-									</span>
-                    <a href="{{route('product',['id'=>$rs->id])}}">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-
-                        <p><del>$19.00</del> <strong>$19.00</strong></p>
-
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-                    </a>
-                </article>
-
-                <article class="style4">
-									<span class="image">
-										<img src="{{asset('assets')}}/images/product-4-720x480.jpg" alt="" />
-									</span>
-                    <a href="product-details.html">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-
-                        <p><del>$19.00</del> <strong>$19.00</strong></p>
-
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-                    </a>
-                </article>
-
-                <article class="style5">
-									<span class="image">
-										<img src="{{asset('assets')}}/images/product-5-720x480.jpg" alt="" />
-									</span>
-                    <a href="product-details.html">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-
-                        <p><del>$19.00</del> <strong>$19.00</strong></p>
-
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-                    </a>
-                </article>
-
-                <article class="style6">
-									<span class="image">
-										<img src="{{asset('assets')}}/images/product-6-720x480.jpg" alt="" />
-									</span>
-                    <a href="product-details.html">
-                        <h2>Lorem ipsum dolor sit amet, consectetur</h2>
-
-                        <p><del>$19.00</del> <strong>$19.00</strong></p>
-
-                        <p>Vestibulum id est eu felis vulputate hendrerit uspendisse dapibus turpis in </p>
-                    </a>
-                </article>
             </section>
 
             <p class="text-center"><a href="products.html">More Books &nbsp;<i class="fa fa-long-arrow-right"></i></a></p>

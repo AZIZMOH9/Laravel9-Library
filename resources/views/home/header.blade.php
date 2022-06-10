@@ -56,15 +56,15 @@
         @endguest
 
         @auth
-            <div>
-                <Strong class="text-uppercase">{{Auth::user()->name}}<i class="fa fa-create-down"</Strong>
-            </div>
+            <Strong class="text-uppercase">{{Auth::user()->name}}<i class="fa fa-create-down"</Strong>
             <a href="/logoutuser">logut</a>
+
         @endauth
 
 
     </div>
 
+    </body>
 
 
 

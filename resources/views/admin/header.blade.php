@@ -12,5 +12,5 @@
         <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;">   &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;">   &nbsp; <a href="/home" class="btn btn-danger square-btn-adjust">Logout</a> </div>
     </nav>
