@@ -1,5 +1,5 @@
 <ul>
-    <li><a href="/about">my profile</a></li>
+    <li><a href="{{route()}">my profile</a></li>
     <li><a href="/products">my order</a></li>
     <li><a href="checkout.html">my reviews</a></li>
     <li><a href="/referance">checkout</a></li>
