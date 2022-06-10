@@ -52,6 +52,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 //**************************admin panel
 Route::middleware('auth')->group(function (){
+//**************************user
+    Route::prefix('userpanel')->name('userpanel.')->controller(\App\Http\Controllers\UserController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+
+    });
   Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/',[adminhomecontroller::class, 'index'])->name('index');
     //**************************admin panel
