@@ -54,7 +54,7 @@
 
 
                     <div class="col-md-7">
-                        <h1>{{$data->title}} <span class="pull-right"><del>${{$data->price *1.6}}</del><br> ${{$data->price}}</span></h1>
+                        <h1>{{$data->title}} <span class="pull-right"><br></span></h1>
                         <br>
                         <p> {{$data->description}}</p>
 
@@ -78,38 +78,7 @@
                 </div>
             </div>
             @endforeach
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <label class="control-label">Extra 1</label>
-
-                                <div class="form-group">
-                                    <select>
-                                        <option value="0">Extra 1</option>
-                                        <option value="1">Extra 2</option>
-                                        <option value="2">Extra 3</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-8">
-                                <label class="control-label">Quantity</label>
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <input type="text" name="name" id="name">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <input type="submit" class="primary" value="Add to Cart">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                      @include('home.borrow')
             <div class="page-section" >
                 <div class="container" >
                     <h1 class="text-center wow fadeInUp">Write Your Rewiev</h1>

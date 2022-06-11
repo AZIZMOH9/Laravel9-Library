@@ -12,4 +12,7 @@ class product extends Model
     public function category(){
         return $this->belongsTo(category::class);
     }
+    public function borrows(){
+        return $this->belongsToMany(Borrow::class,'borrows');
+    }
 }

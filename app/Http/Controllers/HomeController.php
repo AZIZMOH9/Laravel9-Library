@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Borrow;
 use App\Models\category;
 use App\Models\Comment;
 use App\Models\Faq;
@@ -60,6 +61,18 @@ class HomeController extends Controller
     public function blog(){
         return view('/home/blog');
     }
+    public function storeborrow(Request $request){
+
+        $data=new Borrow();
+        $data->user_id= Auth::id();
+        $data->days= $request->input('days');
+        $data->note= $request->input('note');
+        $data->status= $request->input('status');
+        $data->book= $request->input('book');
+        $data->product_id = 1;
+        $data->ip=request()->ip();
+        $data->save();
+        return redirect()->route('index')->with('info','your request has been sent,thank you');    }
     public function storemessage(Request $request){
         //dd($request);
         $data=new Message();

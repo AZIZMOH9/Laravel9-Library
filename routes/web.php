@@ -31,6 +31,7 @@ Route::get('/testimonials',[HomeController::class, 'testimonials'])->name('testi
 Route::get('/terms',[HomeController::class, 'terms'])->name('terms');
 Route::get('/product/{id}',[HomeController::class, 'product'])->name('product');
 Route::post('/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
+Route::post('/storeborrow',[HomeController::class, 'storeborrow'])->name('storeborrow');
 Route::get('/categoryproducts/{id}/{slug}',[HomeController::class, 'categoryproducts'])->name('categoryproducts');
 Route::view('/loginuser','home.login');
 Route::view('/loginadmin','admin.login');
@@ -55,6 +56,8 @@ Route::middleware('auth')->group(function (){
 //**************************user
     Route::prefix('userpanel')->name('userpanel.')->controller(\App\Http\Controllers\UserController::class)->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::get('/review', 'review')->name('review');
+
 
     });
   Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {

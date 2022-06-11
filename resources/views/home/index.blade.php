@@ -26,23 +26,23 @@
             <h2 class="h2">Featured Products</h2>
 
             <!-- Products -->
+            <div class="row">
             <section class="tiles">
                 @foreach($productlist1 as $rs)
                 <article class="">
 									<span class="image">
-										<img src="{{Storage::url($rs->image)}}" style="height: 220px; width:480px;" />
+										<img src="{{Storage::url($rs->image)}}" style="height: 220px; width:220px;" />
 									</span>
                     <a href="{{route('product',['id'=>$rs->id])}}">
-                        <h2>{{$rs->title}}</h2>
-
-                        <p><del>${{$rs->price*1.5}}</del> <strong>${{$rs->price}}</strong></p>
-
-                        <p>${{$rs->keyword}}</p>
+                        <h class="btn btn-dark btn-lg">for details</h>
                     </a>
+                    <h2>{{$rs->title}}</h2>
+                    <p>{{$rs->keyword}}</p>
                 </article>
                 @endforeach
 
             </section>
+            </div>
 
             <p class="text-center"><a href="products.html">More Books &nbsp;<i class="fa fa-long-arrow-right"></i></a></p>
 
