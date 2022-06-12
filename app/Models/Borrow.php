@@ -11,7 +11,7 @@ class Borrow extends Model
     public function products(){
         return $this->belongsTo(product::class);
     }
-    public function users(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 

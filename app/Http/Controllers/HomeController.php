@@ -9,6 +9,7 @@ use App\Models\Faq;
 use App\Models\Message;
 use App\Models\product;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -46,6 +47,11 @@ class HomeController extends Controller
             'products'=>$products]);
 
     }
+    public function borrow()
+    {
+        $data = Borrow::where('user_id',Auth::id())->orderBy('created_at', 'desc')->get();
+        return view('home.borrow', ['data' => $data,]);
+    }
 
 
     public function products(){
@@ -71,7 +77,7 @@ class HomeController extends Controller
         $data->product_id= $request->input('product_id');
         $data->ip=request()->ip();
         $data->save();
-        return redirect()->route('index')->with('info','your request has been sent,thank you');    }
+        return redirect()->route('borrow')->with('info','your request has been sent,thank you');    }
     public function storemessage(Request $request){
         //dd($request);
         $data=new Message();

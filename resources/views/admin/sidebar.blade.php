@@ -27,17 +27,17 @@
                 <a  href="/admin/user"><i class="fa fa-user fa-3x"></i> Users</a>
             </li>
             <li>
-                <a  href="/admin/social"><i class="fa fa-user fa-3x"></i> Social</a>
+                <a  href="#"><i class="fa fa-user fa-3x"></i> Social</a>
             </li>
             <li>
                 <a  href="/admin/setting"><i class="fa fa-edit fa-3x"></i> settings</a>
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-sitemap fa-3x"></i> Orders<span class="fa arrow"></span></a>
+                <a ><i class="fa fa-sitemap fa-3x"></i> Orders<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">New orders</a>
+                        <a href="{{route('admin.borrow.index')}}">New orders</a>
                     </li>
                     <li>
                         <a href="#">accepted orders</a>

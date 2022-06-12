@@ -22,6 +22,7 @@ use App\Http\Controllers\admin\categoryController As admincategorycontroller;
 
 Route::get('/home',[HomeController::class, 'index'])->name('index');
 Route::get('/products',[HomeController::class, 'products'])->name('products');
+Route::get('/borrow',[HomeController::class, 'borrow'])->name('borrow');
 Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
 Route::get('/blog',[HomeController::class, 'blog'])->name('blog');
@@ -111,6 +112,13 @@ Route::middleware('auth')->group(function (){
         Route::get('/destroy/{id}','destroy')->name('destroy');
         Route::get('/show/{id}','show')->name('show');
     });
+      //**************ADMIN borrow ROUTES**************
+      Route::prefix('/borrow')->name('borrow.')->controller(\App\Http\Controllers\admin\BorrowController::class)->group(function () {
+          Route::get('/', 'index')->name('index');
+          Route::get('/show/{id}', 'show')->name('show');
+          Route::post('/update/{id}','update')->name('update');
+          Route::get('/destroy/{id}','destroy')->name('destroy');
+      });
       //**************ADMIN COMMENT ROUTES**************
       Route::prefix('/comment')->name('comment.')->controller(CommentController::class)->group(function () {
           Route::get('/', 'index')->name('index');
@@ -118,6 +126,8 @@ Route::middleware('auth')->group(function (){
 
           Route::post('/update/{id}','update')->name('update');
           Route::get('/destroy/{id}','destroy')->name('destroy');
+      });
+
     //**************************admin user controller*************
     Route::prefix('/user')->name('user.')->controller(AdminUserController::class)->group(function () {
         Route::get('/', 'index')->name('index');
@@ -128,6 +138,7 @@ Route::middleware('auth')->group(function (){
         Route::post('/addrole/{id}','addrole')->name('addrole');
         Route::get('/destroy/{uid}/{rid}','destroyrole')->name('destroyrole');
     });
+
   });
-});
+
 });

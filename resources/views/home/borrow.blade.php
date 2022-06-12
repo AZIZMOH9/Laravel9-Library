@@ -1,46 +1,84 @@
-<h2>borrow</h2>
-<br>
-<form class="main-form" action="{{route('storeborrow')}}" method="post">
-    @csrf
-    <input type="hidden" id="product_id" value="{{$product_id}}" name="product_jd">
-    <input type="hidden"  name="policlinic_id" class="form-control" value="{{$data->id}}" >
-    <div class="row mb-3">
-        <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
-            <label for="rate">days</label>
-            <select name="days" id="days"  class="custom-select">
-                <option  value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-            </select>
-        </div>
-        <label for="birthday">book date:</label>
-        <input type="date" id="birthday" name="book">
-        <div class="form-group">
-            <label>keyword Input</label>
-            <input type="text" class="form-control" name="note" placeholder="note">
-        </div>
-        <label>status</label>
-        <select class="form-control" name="status">
-            <option>true</option>
-            <option>false</option>
-        </select>
-    </div>
-    @auth()
-        <button type="submit" class="btn btn-primary wow zoomIn">Submit</button>
-    @else
+@extends('layouts.frontbased')
 
-        <a href="/login" class="btn btn-danger"> For Submit Your Comment ,Please Login</a>
-    @endauth
-</form>
+@section('title','Appointment | ')
+
+
+@section('content')
+        <div class="banner-section">
+            <div class="container text-center wow fadeInUp">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0 mb-2">
+                        <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">User Appointments</li>
+                    </ol>
+                </nav>
+                <h1 class="font-weight-normal">User requests</h1>
+
+
+        </div> <!-- .banner-section -->
+    </div>
+
+
+    <div class="page-section">
+        <div class="container">
+            <b class="col-lg-2" style="color: green">User Menu</b>
+            @include('home.user.usermenu')
+            <br>
+            <br>
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 wow fadeInUp">
+                        <div class="text-lg">
+                            <b class="col-lg-2" style="color: green">User Appointment</b>
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Policlinic Name</th>
+                                    <th>Name</th>
+                                    <th>Appointment Date</th>
+                                    <th>Status</th>
+                                    <th>Time</th>
+                                    <th>Cancel</th>
+
+
+
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                @foreach( $data as $rs)
+                                    <tr>
+                                        <td>{{$rs->id }}</td>
+                                        <td> @if($rs->product_id) <a href="{{ route('product_id', ['id'=>$rs->product_id]) }}" target="_blank">{{ $rs->product_id->title }}</a> @else No service @endif</td>
+                                        <td>{{$rs->name }}</td>
+                                        <td>{{$rs->date }}</td>
+                                        <td>
+
+                                        </td>
+                                        <td>{{$rs->time }}</td>
+                                    </tr>
+
+                                @endforeach
+                                </tbody>
+                            </table>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+@endsection
