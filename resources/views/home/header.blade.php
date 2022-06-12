@@ -1,68 +1,55 @@
-<!-- Header -->
-<header id="header">
-    <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            div.scrollmenu {
-                background-color: #333;
-                overflow: auto;
-                white-space: nowrap;
+<!-- Navbar Start -->
+<div class="container-fluid nav-bar p-0">
+    <div class="container-lg p-0">
 
-            }
+        <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
+            <a href="/home" class="navbar-brand">
+                <h1 class="m-0 text-white display-4"><span class="text-primary">K</span>arabuk<span class="text-primary">U</span>niversity</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto py-0">
+                    <li class="nav-item">
+                        @auth()
+                            <a href="{{route('userpanel.index')}}" class="btn btn-primary ml-lg-3"> {{Auth::user()->name}}</a>
+                            <a  class="btn btn-primary ml-lg-3" href= "/home/logoutuser">  Log out</a>
+                        @endauth
 
-            div.scrollmenu a {
-                display: inline-block;
-                color: white;
-                text-align: left;
-                float: right;
-                padding: 15px 50px 5px 50px;
-
-
-                text-decoration: none;
-            }
-
-            div.scrollmenu a:hover {
-                background-color: #777;
-            }
-            div.sdf {
-                padding: 15px;
-                color: silver;
-                height: 90px;
-                float: left;
-                font-size: 30px;
-
-            }
-        </style>
-    </head>
-    <body>
-
-    <div class="scrollmenu">
-        <div class="sdf">
-        <a href="/home" class="logo">
-            <span class="fa fa-book" ></span> <span class="alert-heading" >karabuk</span>
-        </a>
-
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#menu">Menu</a></li>
-            </ul>
+                    </li>
+                    @guest()
+                        <li class="nav-item">
+                            <a href="/home/registeruser" class="btn btn-primary ml-lg-3">Kayıt Ol</a> <a href="/home/loginuser" class="btn btn-primary ml-lg-3">Giriş yap</a>
+                        </li>
+                        @endguest
+                        </ul>
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <div class="btn-outline-primary">
+                    </div>
+                    <a href="pricing.html" class="nav-item nav-link">Pricing</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu border-0 rounded-0 m-0">
+                            <a href="blog.html" class="dropdown-item">Blog Grid</a>
+                            <a href="single.html" class="dropdown-item">Blog Detail</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>  <nav>
+                <ul>
+                    <li><a href="#menu" class="active-menu">Menu</a></li>
+                </ul>
+            </nav>
         </nav>
-        @guest()
-        <a href="/loginuser">login</a>
-        <a href="/registeruser">regestir</a>
-
-        @endguest
-
-        @auth
-            <Strong class="text-uppercase">{{Auth::user()->name}}<i class="fa fa-create-down"</Strong>
-            <a href="/logoutuser">logut</a>
-
-        @endauth
-
-
     </div>
+</div>
+
+
+
 
     </body>
 
