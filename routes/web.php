@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminProductController;
 use App\Http\Controllers\admin\AdminUserController;
+use App\Http\Controllers\admin\CommentController;
 use App\Http\Controllers\admin\FaqController;
 use App\Http\Controllers\admin\MessageController As MessageController;
 use Illuminate\Support\Facades\Route;
@@ -128,4 +129,5 @@ Route::middleware('auth')->group(function (){
         Route::get('/destroy/{uid}/{rid}','destroyrole')->name('destroyrole');
     });
   });
+});
 });

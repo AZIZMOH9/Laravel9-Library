@@ -15,7 +15,7 @@
                 <a  href="/admin/product"><i class="fa fa-dashcube fa-3x"></i> Products</a>
             </li>
             <li>
-                <a  href="/admin/comment"><i class="fa fa-comment fa-3x"></i> Comments</a>
+                <a  href="{{route('admin.comment.index')}}"><i class="fa fa-comment fa-3x"></i> Comments</a>
             </li>
             <li>
                 <a  href="{{route('admin.faq.index')}}"><i class="fa fa-question fa-3x"></i> FAQ</a>
