@@ -25,9 +25,6 @@
 @include('home.navbar')
 @yield('content')
 @include('home.footer')
-
-</div>
-
 @section('scripts')
 <!-- Scripts -->
 <script src="{{asset('assets')}}/assets/js/jquery.min.js"></script>
