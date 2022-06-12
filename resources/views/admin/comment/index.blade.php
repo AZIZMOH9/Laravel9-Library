@@ -24,7 +24,7 @@
                                     <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>product</th>
+                                        <th>product id</th>
                                         <th>User</th>
                                         <th>Review</th>
                                         <th>Rate</th>
@@ -37,7 +37,8 @@
                                     <tbody>
                                     @foreach( $data as $rs)
                                         <tr class="success"><td>{{$rs->id}}</td>
-
+                                            <td>{{$rs->product_id}}</td>
+                                            <td>{{$rs->user->name}}</td>
                                             <td>{{$rs->review}}</td>
                                             <td>{{$rs->rate}}</td>
                                             <td>{{$rs->status}}</td>

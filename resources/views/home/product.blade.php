@@ -90,7 +90,7 @@
             <br>
             <form class="main-form" action="{{route('storeborrow')}}" method="post">
                 @csrf
-                <input type="hidden" id="product_id" value="{{$data->id}}" name="product_jd">
+                <input type="hidden" id="product_id" value="{{$data->id}}" name="product_id">
                 <div class="row mb-3">
                     <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
                         <label for="rate">days</label>

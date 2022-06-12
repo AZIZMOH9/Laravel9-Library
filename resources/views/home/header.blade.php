@@ -14,13 +14,13 @@
                     <li class="nav-item">
                         @auth()
                             <a href="{{route('userpanel.index')}}" class="btn btn-primary ml-lg-3"> {{Auth::user()->name}}</a>
-                            <a  class="btn btn-primary ml-lg-3" href= "/home/logoutuser">  Log out</a>
+                            <a  class="btn btn-primary ml-lg-3" href= "/logoutuser">  Log out</a>
                         @endauth
 
                     </li>
                     @guest()
                         <li class="nav-item">
-                            <a href="/home/registeruser" class="btn btn-primary ml-lg-3">Kayıt Ol</a> <a href="/home/loginuser" class="btn btn-primary ml-lg-3">Giriş yap</a>
+                            <a href="/registeruser" class="btn btn-primary ml-lg-3">Register</a> <a href="/loginuser" class="btn btn-primary ml-lg-3">Login</a>
                         </li>
                         @endguest
                         </ul>

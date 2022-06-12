@@ -118,7 +118,7 @@ Route::middleware('auth')->group(function (){
 
           Route::post('/update/{id}','update')->name('update');
           Route::get('/destroy/{id}','destroy')->name('destroy');
-    //**************************admin product
+    //**************************admin user controller*************
     Route::prefix('/user')->name('user.')->controller(AdminUserController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/update/{id}','update')->name('update');

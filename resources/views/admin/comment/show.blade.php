@@ -30,7 +30,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th>User</th>
-                                                        <td>{{$data->product->title}}</td>
+                                                        <td>{{$data->product_id}}</td>
                                                     </tr>
                                                     <tr>
                                                         <th>User</th>
