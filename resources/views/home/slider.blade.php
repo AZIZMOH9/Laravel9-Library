@@ -7,7 +7,7 @@
 </style>
 <body>
 
-<h2 class="w3-center">Manual Slideshow</h2>
+<h2 class="w3-center">Famous books</h2>
 @foreach($sliderdata as $rs)
 <div class="w3-content w3-display-container" style="height: 40px; width:480px;">
     <img class="mySlides" src="{{Storage::url($rs->image)}}" style="width:100%">

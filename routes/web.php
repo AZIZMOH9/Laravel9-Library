@@ -110,6 +110,13 @@ Route::middleware('auth')->group(function (){
         Route::get('/destroy/{id}','destroy')->name('destroy');
         Route::get('/show/{id}','show')->name('show');
     });
+      //**************ADMIN COMMENT ROUTES**************
+      Route::prefix('/comment')->name('comment.')->controller(CommentController::class)->group(function () {
+          Route::get('/', 'index')->name('index');
+          Route::get('/show/{id}', 'show')->name('show');
+
+          Route::post('/update/{id}','update')->name('update');
+          Route::get('/destroy/{id}','destroy')->name('destroy');
     //**************************admin product
     Route::prefix('/user')->name('user.')->controller(AdminUserController::class)->group(function () {
         Route::get('/', 'index')->name('index');
