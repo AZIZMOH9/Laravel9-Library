@@ -13,6 +13,6 @@ class product extends Model
         return $this->belongsTo(category::class);
     }
     public function borrows(){
-        return $this->belongsToMany(Borrow::class,'borrows');
+        return $this->hasMany(Borrow::class,'borrows');
     }
 }

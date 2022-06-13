@@ -27,7 +27,8 @@
                                         <th>product id</th>
                                         <th>User</th>
                                         <th>book</th>
-                                        <th>reuturn</th>
+                                        <th>borrow days</th>
+                                        <th>status</th>
                                         <th style="width: 110px">Show</th>
                                         <th style="width: 110px">Delete</th>
 
@@ -39,9 +40,8 @@
                                             <td>{{$rs->product_id}}</td>
                                             <td>{{$rs->user->name}}</td>
                                             <td>{{$rs->book}}</td>
-                                            <td>{{$rs->return}}</td>
+                                            <td>{{$rs->days}}</td>
                                             <td>{{$rs->status}}</td>
-
                                             <td>
                                                 <a href="{{route('admin.borrow.show',['id'=>$rs->id])}}"
                                                    onclick="return !window.open(this.href, ' ', 'top=50 left=100 width=1000, height=700')"class="btn btn-success">
@@ -49,9 +49,8 @@
                                                 </a>
                                             </td>
 
-                                            <td><a href="{{route('admin.comment.destroy',['id'=>$rs->id])}}"></a><a onclick="return confirm('DELETING!! ARE YOU SURE??')" class="btn btn-danger ">Delete</a></td>
-
-
+                                            <td><a href="{{route('admin.borrow.destroy',['id'=>$rs->id])}}"class="btn btn-danger btn-xs"
+                                                   onclick="return confirm('deleting are you sure?')">delete</a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

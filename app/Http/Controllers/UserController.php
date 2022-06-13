@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Borrow;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,11 +18,18 @@ class UserController extends Controller
     {
         return view('home.user.index');
     }
-    public function review(){
+    public function reviews(){
 
         $comments=Comment::where('user_id','=',Auth::id())->get();
-        return view('/user/comments',[
+        return view('home.user.comments',[
             'comments'=>$comments,]);
+
+    }
+    public function borrows(){
+
+        $borrows=Borrow::where('user_id','=',Auth::id())->get();
+        return view('home.user.borrow',[
+            'borrows'=>$borrows,]);
 
     }
     /**
@@ -33,6 +41,7 @@ class UserController extends Controller
     {
         //
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -54,6 +63,13 @@ class UserController extends Controller
     public function show($id)
     {
         //
+    }
+    public function borrow(){
+
+        $borrow=Borrow::where('user_id','=',Auth::id())->get();
+        return view('home.user.appointments',[
+            'borrow'=>$borrow,]);
+
     }
 
     /**
@@ -88,5 +104,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function borrowdestroy($id)
+    {
+        //
+
+        $data= Borrow::find($id);
+        $data->delete();
+        return redirect(route('userpanel.borrow'));
     }
 }

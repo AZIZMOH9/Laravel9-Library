@@ -26,6 +26,7 @@
                                     <tr>
                                         <th>id</th>
                                         <th>name</th>
+                                        <th>mesasage</th>
                                         <th>phone</th>
                                         <th>email</th>
                                         <th>status</th>
@@ -38,6 +39,7 @@
                                     <tr>
                                         <td>{{$rs->id}}</td>
                                         <td>{{$rs->name}}</td>
+                                        <td>{{$rs->message}}</td>
                                         <td>{{$rs->phone}}</td>
                                         <td>{{$rs->email}}</td>
                                         <td>{{$rs->status}}</td>

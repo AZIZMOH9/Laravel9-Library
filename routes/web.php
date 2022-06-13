@@ -58,7 +58,10 @@ Route::middleware('auth')->group(function (){
 //**************************user
     Route::prefix('userpanel')->name('userpanel.')->controller(\App\Http\Controllers\UserController::class)->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('/review', 'review')->name('review');
+        Route::get('/reviews', 'reviews')->name('reviews');
+        Route::get('/reviewdestroy/{id}','destroy')->name('destroy');
+        Route::get('/borrows', 'borrows')->name('borrows');
+        Route::get('/borrowdestroy/{id}','borrowdestroy')->name('borrowdestroy');
 
 
     });

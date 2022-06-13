@@ -23,30 +23,30 @@
                         <table class="table table-striped table-bordered table-hover" >
                             @foreach($comments as $rs)
                             <tr>
-                                <th>name</th>
+                                <th>id</th>
                                 <td>{{$rs->id}}</td>
                                 <td><a href=""</td>
                             </tr>
+                                <tr>
+                                    <th>comment</th>
+                                    <td>{{$rs->review}}</td>
+                                </tr>
 
                             <tr>
                                 <th>subject </th>
                                 <td>{{$rs->subject}}</td>
                             </tr>
-                            <tr>
-                                <th>Email</th>
-                                <td>{{$data->email}}</td>
-                            </tr>
-
-
-
-
+                                <tr>
+                                    <th>Rate</th>
+                                    <td>{{$rs->rate}}</td>
+                                </tr>
                             <tr>
                                 <th>Created Date</th>
-                                <td>{{$data->created_at}}</td>
+                                <td>{{$rs->created_at}}</td>
                             </tr>
                             <tr>
                                 <th>Update Date</th>
-                                <td>{{$data->updated_at}}</td>
+                                <td>{{$rs->updated_at}}</td>
                             </tr>
                             @endforeach
                         </table>

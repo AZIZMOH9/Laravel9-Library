@@ -30,7 +30,7 @@
 									<input type="text" name="email" id="email" placeholder="Email" />
 								</div>
 								<div class="field half">
-									<input type="text" name="phone" id="phone" placeholder="Email" />
+									<input type="text" name="phone" id="phone" placeholder="phone" />
 								</div>
 
 								<div class="field">
@@ -42,8 +42,6 @@
 								</div>
 
 								<div class="field text-right">
-									<label>&nbsp;massge</label>
-									<textarea id="massege"></textarea>
 									<br>
 									<ul class="actions">
 										<li><input type="submit" value="Send Message" class="primary" /></li>

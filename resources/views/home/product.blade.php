@@ -155,7 +155,7 @@
                             </div>
                             <div class="col-12 py-2 wow fadeInUp">
                                 <label for="comment">Your Comment</label>
-                                <textarea id="comment" name="comment" class="form-control" rows="8" placeholder="Enter Your Comment"></textarea>
+                                <textarea id="comment" name="review" class="form-control" rows="8" placeholder="Enter Your Comment"></textarea>
                             </div>
                         </div>
                         @auth()

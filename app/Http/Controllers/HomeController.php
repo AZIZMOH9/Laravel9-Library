@@ -77,7 +77,7 @@ class HomeController extends Controller
         $data->product_id= $request->input('product_id');
         $data->ip=request()->ip();
         $data->save();
-        return redirect()->route('borrow')->with('info','your request has been sent,thank you');    }
+        return redirect()->route('userpanel.borrows')->with('info','your request has been sent,thank you');    }
     public function storemessage(Request $request){
         //dd($request);
         $data=new Message();

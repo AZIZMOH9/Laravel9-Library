@@ -4,7 +4,7 @@
 
         <nav class="navbar navbar-expand-lg bg-secondary navbar-dark">
             <a href="/home" class="navbar-brand">
-                <h1 class="m-0 text-white display-4"><span class="text-primary">K</span>arabuk<span class="text-primary">U</span>niversity</h1>
+                <h1 class="m-0 text-white display-4"><i class="fa fa-book fa-1x"></i><span class="text-primary">K</span>arabuk<span class="text-primary">L</span>ibrary</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu">
                 <span class="navbar-toggler-icon"></span>
@@ -13,8 +13,8 @@
                 <div class="navbar-nav ml-auto py-0">
                     <li class="nav-item">
                         @auth()
-                            <a href="{{route('userpanel.index')}}" class="btn btn-primary ml-lg-3"> {{Auth::user()->name}}</a>
-                            <a  class="btn btn-primary ml-lg-3" href= "/logoutuser">  Log out</a>
+                            <a href="{{route('userpanel.index')}}" class="btn btn-dark ml-lg-3"><i class="fa fa-user fa-1x"></i>   {{Auth::user()->name}}</a>
+                            <a  class="btn btn-danger ml-lg-3" href= "/logoutuser">  Log out</a>
                         @endauth
 
                     </li>
