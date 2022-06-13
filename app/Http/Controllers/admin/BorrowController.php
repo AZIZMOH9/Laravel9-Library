@@ -68,6 +68,10 @@ class BorrowController extends Controller
     public function edit($id)
     {
         //
+        $data= Borrow::find($id);
+        return view('admin.borrow.edit', [
+            'data'=> $data
+        ]);
     }
 
 /**
@@ -79,10 +83,10 @@ class BorrowController extends Controller
 */
     public function update(Request $request, $id)
     {
-        $data= Comment::find($id);
+        $data= Borrow::find($id);
         $data->status  = $request->status;
         $data->save();
-        return redirect(route('admin.comment.show',['id'=>$id]));
+        return redirect(route('admin.borrow.show',['id'=>$id]));
     }
 
     /**

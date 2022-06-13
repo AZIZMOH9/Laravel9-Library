@@ -31,12 +31,12 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-12 wow fadeInUp">
                         <div class="text-lg">
-                            <b class="col-lg-2" style="color: green">User Appointment</b>
+                            <b class="col-lg-2" style="color: green">User borrow list</b>
                             <table class="table">
                                 <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>product Name</th>
+                                    <th>product id</th>
                                     <th>days</th>
                                     <th>borrow Date</th>
                                     <th>Status</th>
@@ -57,7 +57,7 @@
                                         <td>{{$rs->days }}</td>
                                         <td>{{$rs->book }}</td>
                                         <td>
-
+                                            {{$rs->status }}
                                         </td>
                                         <td>{{$rs->created_at }}</td>
                                         <td><a href="{{route('userpanel.borrowdestroy',['id'=>$rs->id ])}}" onclick="return confirm('Cancelling!! Are you sure?')" class="btn btn-danger btn-sm">Cancel </a></td>

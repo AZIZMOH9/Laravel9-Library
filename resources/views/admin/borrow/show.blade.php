@@ -64,12 +64,12 @@
                                                     <tr>
                                                         <th>Admin Note : </th>
                                                         <td>
-                                                            <form role="form" action="{{route('admin.comment.update',['id'=>$data->id])}}" method="post" >
+                                                            <form role="form" action="{{route('admin.borrow.update',['id'=>$data->id])}}" method="post" >
                                                                 @csrf
                                                                 <select name="status">
                                                                     <option selected> {{$data->status}}</option>
-                                                                    <option>True</option>
-                                                                    <option>False</option>
+                                                                    <option>Accept</option>
+                                                                    <option>Reject</option>
                                                                 </select>
                                                                 <button type="submit" class="btn btn-default">Update Note</button>
                                                                 <button type="reset" class="btn btn-primary">Reset </button>
